@@ -131,9 +131,10 @@ select{
 option{
     background-color: navy;
     color: #FAF9F6;
-}i{
+}
+i.fa.fa-youtube-play {
+    font-size: 100px;
     color: red;
-    font-size: 40px;
 }
 #res{
     text-align: center;
@@ -142,17 +143,19 @@ option{
     *{
         margin: 0;
         padding: 0;
+        font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+        background-color: #DCE1E3;
     }
     header{
         width: 100%;
         text-align: center;
     }
     h1{
-        font-size: 20px;
-        text-align: center;
+        font-size: 2rem;
+        line-height: 1.6;
     }
-    i{
-        font-size: 20px;
+    i.fa.fa-youtube-play{
+        font-size: 50px;
     }
     #url-box{
         width: 100%;
@@ -160,6 +163,11 @@ option{
     main{
         width: 100%;
         margin: 0;
+        padding: 0;
+    }
+    form{
+        width: 100%;
+        margin-top: 2em;
     }
     img{
         width: 100%;
@@ -182,7 +190,8 @@ option{
 </head>
 <body>
     <header>
-        <h1><i class="fa fa-youtube-play">&nbsp;</i><u>Youtube Video Downloader</u></h1>
+        <i class="fa fa-youtube-play"></i>
+        <h1><u>Youtube Video Downloader</u></h1>
     </header>
     <main>
         <div class="container">
