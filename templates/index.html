@@ -108,6 +108,7 @@ input[type=text]:focus {
 }
 img{
     margin-top: 2em;
+    width: 50%;
 }
 .opt{
     padding: 2em;
@@ -130,9 +131,50 @@ select{
 option{
     background-color: navy;
     color: #FAF9F6;
+}i{
+    color: red;
+    font-size: 40px;
 }
 #res{
     text-align: center;
+}
+@media only screen and (max-width: 600px) {
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    header{
+        width: 100%;
+        text-align: center;
+    }
+    h1{
+        font-size: 20px;
+        text-align: center;
+    }
+    i{
+        font-size: 20px;
+    }
+    #url-box{
+        width: 100%;
+    }
+    main{
+        width: 100%;
+        margin: 0;
+    }
+    img{
+        width: 100%;
+    }
+    h2{
+        font-size: 18px;
+    }
+    #bt1{
+        margin-top: 20px;
+    }
+    select{
+        width: 70%;
+        line-height: 2em;
+        border-radius: 5px;
+    }
 }
     </style>
 
@@ -140,7 +182,7 @@ option{
 </head>
 <body>
     <header>
-        <h1><i class="fa fa-youtube-play" style="font-size:40px;color:red">&nbsp;</i><u>Youtube Video Downloader</u></h1>
+        <h1><i class="fa fa-youtube-play">&nbsp;</i><u>Youtube Video Downloader</u></h1>
     </header>
     <main>
         <div class="container">
@@ -155,7 +197,7 @@ option{
         {% if url %}
         <div class="thumbnail">
             <h2>{{vidTitle}}</h2>
-            <img src="{{vidThumbnail}}" width="50%" >
+            <img src="{{vidThumbnail}}" >
         </div>
         <div class="opt">
                 <label for="res">Resolutions</label>
