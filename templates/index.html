@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>YT Downloader</title>
+    <!--
+        styling
+    -->
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #FAF9F6;
+            font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+        }
+        header{
+            text-align: center;
+            margin-top: 2em;
+        }
+        h1 {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+     font-size: 40px;
+     font-style: normal;
+     font-variant: normal;
+     font-weight: 700;
+     line-height: 26.4px;
+}
+h2 {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+     font-size: 25px;
+     font-style: normal;
+     font-variant: normal;
+     font-weight: 500;
+     line-height: 26.4px;
+}
+ h3 {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+     font-size: 14px;
+     font-style: normal;
+     font-variant: normal;
+     font-weight: 700;
+     line-height: 15.4px;
+}
+ p {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+     font-size: 14px;
+     font-style: normal;
+     font-variant: normal;
+     font-weight: 400;
+     line-height: 20px;
+}
+ blockquote {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+     font-size: 21px;
+     font-style: normal;
+     font-variant: normal;
+     font-weight: 400;
+     line-height: 30px;
+}
+ pre {
+     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+     font-size: 13px;
+     font-style: normal;
+     font-variant: normal;
+     font-weight: 400;
+     line-height: 18.5714px;
+}
+u{
+    text-decoration-color: red;
+}
+main{
+    margin: auto;
+    width: 50%;
+    padding: 2em;
+}
+form{
+    margin:auto;
+    width: 50%;
+    text-align: center;
+}
+#url-box{
+    padding: 15px;
+    width: 100%;
+    border: 0;
+    box-shadow:0 0 15px 4px rgba(255, 0, 0, 0.06);
+    color: black;
+}
+input[type=text]:focus {
+  outline: none !important;
+}
+#bt{
+    padding: 10px;
+    border: 0;
+    box-shadow:0 0 15px 4px rgba(255, 0, 0, 0.06);
+    border-radius: 5px;
+}
+#bt:hover{
+    background-color: red;
+    color: white;
+}
+.thumbnail{
+    margin-top: 2em;
+    text-align: center;
+}
+img{
+    margin-top: 2em;
+}
+.opt{
+    padding: 2em;
+    text-align: center;
+}
+#bt1{
+    border: 0;
+    padding: 7px;
+    background-color: red;
+    color: #FAF9F6;
+    border-radius: 5px;
+}
+select{
+    width: 30%;
+    padding: 5px;
+    background-color: navy;
+    color: white;
+    text-align: center;
+}
+option{
+    background-color: navy;
+    color: #FAF9F6;
+}
+#res{
+    text-align: center;
+}
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <h1><i class="fa fa-youtube-play" style="font-size:40px;color:red">&nbsp;</i><u>Youtube Video Downloader</u></h1>
+    </header>
+    <main>
+        <div class="container">
+            <form method="post" action="">
+                {% csrf_token %}
+                <input id="url-box" type="text"name="link"placeholder="Paste youtube link here....">
+                <br>
+                <br>
+                <br>
+                <input type="submit" id="bt" value="Search" name="load">
+        </div>
+        {% if url %}
+        <div class="thumbnail">
+            <h2>{{vidTitle}}</h2>
+            <img src="{{vidThumbnail}}" width="50%" >
+        </div>
+        <div class="opt">
+                <label for="res">Resolutions</label>
+                <select name="Resolutions" id="res">
+                    {% for x in stream %}
+                    <option value="{{x.itag}}">{{x.resolution}}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" id="bt1" value="Download" name="download-video"/>
+        </div>
+    </form>
+        {% endif %}
+    </main>
+</body>
+</html>
