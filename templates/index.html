@@ -6,38 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Youtube</title>
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
 </head>
-<body>
+<body onload="myfun()">
     <header>
         <img id = "logo" src="{% static 'images/youtube.png' %}" alt="icon">
         <h1>Youtube Video Downloader</h1>
     </header>
     <main>
-        <div class="search">
+        <div class="search" id="search">
             <form method="POST" action="">
                 {% csrf_token %}
-                <input type="text" name="link" placeholder="Paste link here" >
-                <input id="bt" type="submit" value="Search" name="load">
+                <i class="fa fa-search icon"></i>
+                <input id="l" type="text" name="link" placeholder="Paste link here hit Enter " >
+                <input id="bt" type="submit" name="load" hidden>
         </div>
-        {% if url %}
-        <div class="details">
-            <h2>{{vidTitle}}</h2>
+        <div class="details" id="details">
+            <h2 id="title">{{vidTitle}}</h2>
             <img id="vid-snap" src="{{vidThumbnail}}" alt="user-photo">
-            <br>
                 <label for="res">Resolutions</label>
-                <br>
-                <select name="Resolutions" id="res">
+                <div class="rbt">
+                    <select name="Resolutions" id="res">
                     {% for x in stream %}
                     <option value="{{x.itag}}">{{x.resolution}}</option>
                     {% endfor %}
                 </select>
-                <br>
                 <input id="bt" type="submit" value="Download" name="download-video">
+                </div>
             </form>
         </div>
-        {% endif %}
     </main>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

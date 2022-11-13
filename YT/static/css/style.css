@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 *{
-    color: #3D101E;
+    color: #f0f7f4;
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background-image: url("/static/images/bg.jpg");
+    background-color: #00171F;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    background-attachment: fixed;
 }
 header{
     display: flex;
@@ -35,29 +35,39 @@ main{
     flex-direction: column;
 }
 .search{
-    top: 50%;
-    padding: 1em;
     text-align: center;
-    width: 50%;
-    margin: auto;
+    width: 100%;
     text-align: center;
+    margin-top: 7%;
 }
-input{
+#l{
     border: none;
     width:50%;
-    padding: 0.5em;
-    border-radius: 5px;
+    padding: 1em;
+    border-radius: 50px;
     box-shadow: 0 0 5px 0;
     background: inherit;
     backdrop-filter: blur(50px);
 }
+.search i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 1em;
+    color: #FF1B1C;
+    font-weight: bolder;
+}
+input[type="text"]::placeholder{
+    text-align: center;
+}
+
 .details{
+    display: none;
     border-radius: 1.5rem;
     box-shadow: 0 0 5px 0;
-    background: inherit;
     backdrop-filter: blur(50px);
     width: 30%;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -71,21 +81,35 @@ input{
 }
 #bt{
     width: fit-content;
-    background-color: #3D101E ;
     color: aliceblue;
+    padding: 0.5em;
+    background-color: #FF1B1C;
     border-radius: 5px;
 }
 label{
     font-weight: 700;
 }
 #res{
-    box-shadow: 0 0 5px 0;
-    background: inherit;
-    backdrop-filter: blur(50px);
+    background-color: #FF1B1C;
     padding: 0.5em;
     color: aliceblue;
+    border-radius: 5px;
+}
+.rbt{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 1em;
 }
 @media (max-width: 480px) {
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    h1{
+        padding: 0;
+    }
     header{
         padding: 0;
         margin: 0;
@@ -95,7 +119,8 @@ label{
         width: 100%;
     }
     #logo{
-        width: 20%;
+        padding: 0;
+        width: 30%;
     }
     main{
         flex-direction: column;
@@ -103,19 +128,40 @@ label{
     }
     .search{
         width: 100%;
-        margin-top: 1.5em;
+        margin-top: 4em;
         padding: 0;
     }
     .details{
         min-width: 90%;
-        height: 10%;
+        padding: 0.5em;
+        border-radius: 5px;
+    }
+    #l{
+        width: 90%;
     }
     #res{
-        background-color: #3D101E;
+        background-color: #FF1B1C;
         color: aliceblue;
         border-radius: 5px;
     }
     option{
         color: aliceblue;
+    }
+    h2{
+        font-size: smaller;
+    }
+    #vid-snap{
+        width: 100%;
+        padding: 0;
+    }
+    .details{
+        justify-content: space-evenly;
+
+    }
+    .rbt{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 1em;
     }
   }
