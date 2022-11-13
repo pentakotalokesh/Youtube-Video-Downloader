@@ -8,7 +8,9 @@ from io import BytesIO
 import os
 from wsgiref.util import FileWrapper
 from requests import request
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
+@csrf_exempt
 def index(request):
     context={}
     global url
