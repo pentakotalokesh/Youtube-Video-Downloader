@@ -85,3 +85,37 @@ label{
     padding: 0.5em;
     color: aliceblue;
 }
+@media (max-width: 480px) {
+    header{
+        padding: 0;
+        margin: 0;
+        font-size: smaller;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    #logo{
+        width: 20%;
+    }
+    main{
+        flex-direction: column;
+        width: 100%;
+    }
+    .search{
+        width: 100%;
+        margin-top: 1.5em;
+        padding: 0;
+    }
+    .details{
+        min-width: 90%;
+        height: 10%;
+    }
+    #res{
+        background-color: #3D101E;
+        color: aliceblue;
+        border-radius: 5px;
+    }
+    option{
+        color: aliceblue;
+    }
+  }

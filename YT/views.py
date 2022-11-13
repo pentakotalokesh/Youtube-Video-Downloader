@@ -32,7 +32,7 @@ def index(request):
         video.download(output_path = dirs, filename = "video.mp4")
         file = FileWrapper(open(f'{dirs}/video.mp4', 'rb'))
         response = HttpResponse(file, content_type = 'application/vnd.mp4')
-        response['Content-Disposition'] = 'attachment; filename = "video.mp4"'
+        response['Content-Disposition'] = 'attachment; filename = "{}.mp4"'.format(yt.title)
         os.remove(f'{dirs}/video.mp4')
         return response
     return render(request,'index.html',context)
