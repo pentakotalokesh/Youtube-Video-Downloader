@@ -101,6 +101,38 @@ label{
     justify-content: space-around;
     padding: 1em;
 }
+.loader{
+    width: 50%;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 30%;
+    display: none;
+    -webkit-mask: conic-gradient(from 22deg, #0003,#000);
+            mask: conic-gradient(from 22deg, #0003,#000);
+    animation: load 1s steps(12) infinite;
+  }
+  .loader,
+  .loader:before,
+  .loader:after{
+    --_g: linear-gradient(currentColor 0 0) 50%; /* update the color here */
+    background: 
+      var(--_g)/34% 5%  space no-repeat,
+      var(--_g)/5%  34% no-repeat space;
+  }
+  .loader:before,
+  .loader:after{
+    content: "";
+    grid-area: 1/1;
+    transform: rotate(30deg);
+  }
+  .loader:after{
+    transform: rotate(60deg);
+  }
+  @keyframes load {
+    from {transform: rotate(0turn)}
+    to   {transform: rotate(1turn)}
+  }
+  
 @media (max-width: 480px) {
     *{
         margin: 0;
@@ -109,6 +141,10 @@ label{
     }
     h1{
         padding: 0;
+    }
+    .loader{
+        position: absolute;
+        top: 50%;
     }
     header{
         padding: 0;
@@ -132,6 +168,7 @@ label{
         padding: 0;
     }
     .details{
+        margin-top: 18%;
         min-width: 90%;
         padding: 0.5em;
         border-radius: 5px;
